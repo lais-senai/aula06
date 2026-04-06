@@ -1,0 +1,52 @@
+import flet as ft
+
+def main(page: ft.Page):
+    def clicou(e):
+        page.add(
+            ft.Text(f"Clicou no container: {e.control.content.value}")
+        )
+
+        
+    page.add(
+        ft.Row(
+            [
+                ft.Container(
+                content=ft.Text("Container não clicavel"),
+                bgcolor=ft.Colors.AMBER,
+                padding=10,
+                margin=10,
+                border_radius=10,
+                width=150,
+                height=150,
+                alignment=ft.Alignment(0,0)
+                ),
+                ft.Container(
+                content=ft.Text("Container clicavel"),
+                bgcolor=ft.Colors.GREEN_200,
+                padding=10,
+                margin=10,
+                border_radius=10,
+                width=150,
+                height=150,
+                alignment=ft.Alignment(0,0),
+                on_click=clicou
+               ),
+                
+                 ft.Container(
+                content=ft.Text("Container clicavel transparente"),
+                bgcolor=ft.Colors.TRANSPARENT,
+                padding=10,
+                margin=10,
+                border_radius=10,
+                width=150,
+                height=150,
+                alignment=ft.Alignment(0,0),
+                on_click=clicou
+               ),
+            ],
+            scroll=ft.ScrollMode.ALWAYS
+        )
+    ) 
+        
+    
+ft.run(main)
